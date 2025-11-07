@@ -191,12 +191,14 @@ func (o Options) checkSelected(m model, filteringChoices []string) {
 				}
 			}
 		}
+		slices.Sort(indexes)
 		tty.Println(strings.Join(indexes, o.OutputDelimiter))
 	} else {
 		out := []string{}
 		for k := range m.selected {
 			out = append(out, k)
 		}
+		slices.Sort(out)
 		tty.Println(strings.Join(out, o.OutputDelimiter))
 	}
 }
